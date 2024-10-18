@@ -1,1 +1,0 @@
-# hexlet-django-blog
