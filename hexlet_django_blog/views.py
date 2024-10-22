@@ -6,4 +6,8 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'about.html', context={'tags': ['Python', 'C+', 'PHP']})
+
+
+def base(request):
+    return render(request, 'base.html')
