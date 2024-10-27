@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Article(models.Model):
-    title=models.CharField(max_length=255)
-    author=models.CharField(max_length=255)
-    created_at=models.DateTimeField(auto_now_add=True)
+    name = models.CharField(max_length=200)  # название статьи
+    body = models.TextField()  # тело статьи
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
