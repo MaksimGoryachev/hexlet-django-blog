@@ -1,14 +1,20 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.urls import reverse
+from django.shortcuts import render
 
+from .models import Article
 
 # def index(request):
 #     return HttpResponse('article')
 
 
 class IndexView(View):
-    def get(self, request):
+    def get(self,request, *args, **kwargs):
+        articles = Article.objects.all()[:15]
+        return render(request, 'articles/index.html', {'articles': articles})
+
+    def get1(self, request):
         # return HttpResponse('Articles')
         tags = request.GET.get('tags', 'python')  # По умолчанию 'python'
         article_id = request.GET.get('article_id', 42)  # По умолчанию 42
